@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchComponent } from './components/search/search.component';
+import { CardComponent } from './components/card/card.component';
 
 import { MaterialModule } from './material.module';
 
@@ -14,14 +17,16 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    HttpClientModule,
+    StoreModule.forRoot({ }),
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

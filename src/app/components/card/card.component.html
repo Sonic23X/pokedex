@@ -1,0 +1,40 @@
+<mat-card>
+  <form class="form">
+    <mat-form-field class="search-pokemon">
+      <mat-label>Buscar</mat-label>
+      <input type="text" matInput placeholder="Pikachu" id="search" name="search" [(ngModel)]="content"
+        (change)="search()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </form>
+  <div style="display: flex; justify-content: center;">
+    <button mat-raised-button color="warn" (click)="getPokemons()">Resetear</button>
+  </div>
+</mat-card>
+
+<div class="mt-2">
+  <mat-grid-list [cols]="breakpoint" rowHeight="100px" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let pokemon of pokemons">
+      <mat-card class="cards" [style.background]="pokemon.color">
+        <mat-card-title-group>
+          <mat-card-title>
+            #{{ pokemon.id}} - {{ pokemon.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip color="accent" selected *ngFor="let type of pokemon.types">
+                {{ type }}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-card-subtitle>
+          <img mat-card-md-image [srcset]="pokemon.sprite">
+        </mat-card-title-group>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 1%;">
+  <button mat-raised-button color="warn" (click)="getPokemons(urlBack)" >Anterior</button>
+  <button mat-raised-button color="warn" (click)="getPokemons(urlNext)">Siguiente</button>
+</div>

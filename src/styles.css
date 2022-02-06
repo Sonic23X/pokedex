@@ -1,9 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: #424242; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-toolbar.mat-primary {
   background: #ee1515;
   color: #fff;
+}
+
+.search-pokemon {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.cards {
+  width: 90%;
+  margin-top: 5%;
+}
+
+.mt-2 {
+  margin-top: 2%;
 }
